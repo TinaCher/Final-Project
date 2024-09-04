@@ -4,6 +4,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 import pytest
 import allure
 
+
 @pytest.fixture
 def browser():
     with allure.step("Open browser"):
@@ -12,6 +13,7 @@ def browser():
         browser.maximize_window()
         yield browser
 
+@pytest.mark.ui_test
 @allure.id("T-1")
 @allure.epic("Chitai-Gorod")
 @allure.severity("Major")
@@ -23,6 +25,7 @@ def test_search_rus(browser):
     page.search(book)
     assert book in page.get_result(book)
 
+@pytest.mark.ui_test
 @allure.id("T-2")
 @allure.epic("Chitai-Gorod")
 @allure.severity("Major")
@@ -34,6 +37,7 @@ def test_search_eng(browser):
     page.search(book)
     assert book in page.get_result(book)
 
+@pytest.mark.ui_test
 @allure.id("T-3")
 @allure.epic("Chitai-Gorod")
 @allure.severity("Major")
@@ -45,6 +49,7 @@ def test_no_result_msg(browser):
     with allure.step('The message appears'):
         assert page.no_result_msg() == "Похоже, у нас такого нет"
 
+@pytest.mark.ui_test
 @allure.id("T-4")
 @allure.epic("Chitai-Gorod")
 @allure.severity("Major")
@@ -57,6 +62,7 @@ def test_buy_click(browser):
     page.go_cart()
     page.check_cart() == True
 
+@pytest.mark.ui_test
 @allure.id("T-5")
 @allure.epic("Chitai-Gorod")
 @allure.severity("Major")

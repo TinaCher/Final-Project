@@ -5,6 +5,7 @@ from api_page import ChitaiGorodApi
 token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MjU2MzY5NzksImlhdCI6MTcyNTQ2ODk3OSwiaXNzIjoiL2FwaS92MS9hdXRoL2Fub255bW91cyIsInN1YiI6Ijk0MzZkNzcyMzE4NzY4M2Y0ZTAzNTMyMWZhNjk3NThlNThlZWI5YWMwODQ1MDkzMzBmMzQzNjljY2EzZDQwNjciLCJ0eXBlIjoxMH0.iewdI8wpg7Yazwv1jTTss3KEdvkLQNFHNl2AmzhGH9M"
 api = ChitaiGorodApi('https://web-gate.chitai-gorod.ru/api/v1', token)
 
+@pytest.mark.api_test
 @allure.severity("Major")
 @allure.id("T-1")
 @allure.feature("Search")
@@ -15,6 +16,7 @@ def test_by_name_rus():
     assert resp_search.status_code == 200
     assert name in resp_search.text
 
+@pytest.mark.api_test
 @allure.severity("Major")
 @allure.id("T-2")
 @allure.feature("Search")
@@ -25,6 +27,7 @@ def test_by_name_eng():
     assert resp_search.status_code == 200
     assert name in resp_search.text
 
+@pytest.mark.api_test
 @allure.severity("Major")
 @allure.id("T-3")
 @allure.feature("Search")
@@ -35,6 +38,7 @@ def test_not_existing():
     assert resp_search.status_code == 200
     assert name not in resp_search.text
 
+@pytest.mark.api_test
 @allure.severity("Normal")
 @allure.id("T-4")
 @allure.feature("Add_cart")
@@ -46,6 +50,7 @@ def test_add_cart():
     resp_check_cart = api.check_cart()
     assert id in resp_check_cart.text
 
+@pytest.mark.api_test
 @allure.severity("Normal")
 @allure.id("T-5")
 @allure.feature("Clear_cart")
