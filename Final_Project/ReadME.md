@@ -16,9 +16,9 @@
 pip install -r requirements.txt
 
 3. Run the tests:
-Execute the tests using pytest by running:
+- Execute the tests using pytest by running:
 pytest -m <marker_name>
-Replace <marker_name> with ui_test or api_test as needed.
+- Replace <marker_name> with ui_test or api_test as needed.
 
 4. Generate the report:
 The command below launches Allure and converts the test results into a report:
